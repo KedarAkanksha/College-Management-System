@@ -1,0 +1,14 @@
+com\college\collegemanagement\controller\TeacherController.class
+com\college\collegemanagement\dto\TeacherDTO.class
+com\college\collegemanagement\mapper\TeacherMapper.class
+com\college\collegemanagement\repository\TeacherRepository.class
+com\college\collegemanagement\config\CorsConfig.class
+com\college\collegemanagement\service\AttendanceService.class
+com\college\collegemanagement\entity\Teacher.class
+com\college\collegemanagement\mapper\AttendanceMapper.class
+com\college\college_management_system\CollegeManagementSystemApplication.class
+com\college\collegemanagement\dto\AttendanceDTO.class
+com\college\collegemanagement\repository\AttendanceRepository.class
+com\college\collegemanagement\service\TeacherService.class
+com\college\collegemanagement\entity\Attendance.class
+com\college\collegemanagement\controller\AttendanceController.class
