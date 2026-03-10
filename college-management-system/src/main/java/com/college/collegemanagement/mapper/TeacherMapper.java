@@ -2,13 +2,16 @@ package com.college.collegemanagement.mapper;
 
 import com.college.collegemanagement.dto.TeacherDTO;
 import com.college.collegemanagement.entity.Teacher;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TeacherMapper {
 
-    // Entity → DTO
-    public static TeacherDTO toDTO(Teacher teacher) {
+    public TeacherDTO toDTO(Teacher teacher) {
+        if (teacher == null) {
+            return null;
+        }
         TeacherDTO dto = new TeacherDTO();
-
         dto.setTeacherId(teacher.getTeacherId());
         dto.setFullName(teacher.getFullName());
         dto.setEmail(teacher.getEmail());
@@ -17,20 +20,23 @@ public class TeacherMapper {
         dto.setDob(teacher.getDob());
         dto.setQualification(teacher.getQualification());
         dto.setExperience(teacher.getExperience());
-        dto.setDepartment(teacher.getDepartment());
         dto.setSubject(teacher.getSubject());
         dto.setSalary(teacher.getSalary());
+        dto.setAadhaarNumber(teacher.getAadhaarNumber());
         dto.setAddress(teacher.getAddress());
         dto.setJoiningDate(teacher.getJoiningDate());
         dto.setStatus(teacher.getStatus());
-
+        if (teacher.getDepartment() != null) {
+            dto.setDepartmentId(teacher.getDepartment().getDepartmentId());
+        }
         return dto;
     }
 
-    // DTO → Entity
-    public static Teacher toEntity(TeacherDTO dto) {
+    public Teacher toEntity(TeacherDTO dto) {
+        if (dto == null) {
+            return null;
+        }
         Teacher teacher = new Teacher();
-
         teacher.setTeacherId(dto.getTeacherId());
         teacher.setFullName(dto.getFullName());
         teacher.setEmail(dto.getEmail());
@@ -39,13 +45,12 @@ public class TeacherMapper {
         teacher.setDob(dto.getDob());
         teacher.setQualification(dto.getQualification());
         teacher.setExperience(dto.getExperience());
-        teacher.setDepartment(dto.getDepartment());
         teacher.setSubject(dto.getSubject());
         teacher.setSalary(dto.getSalary());
+        teacher.setAadhaarNumber(dto.getAadhaarNumber());
         teacher.setAddress(dto.getAddress());
         teacher.setJoiningDate(dto.getJoiningDate());
         teacher.setStatus(dto.getStatus());
-
         return teacher;
     }
 }
