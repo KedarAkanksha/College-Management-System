@@ -12,27 +12,31 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int attendanceId;
 
-    // Student & Teacher Foreign Keys
-    private int studentId;
-    private int teacherId;
-    private int markId;   // optional (for exam attendance)
+    @ManyToOne
+    @JoinColumn(name = "student_id", nullable = false)
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", nullable = false)
+    private Teacher teacher;
+
+    private int markId;
 
     private LocalDate attendanceDate;
     private LocalTime checkInTime;
     private LocalTime checkOutTime;
 
-    private String status; // PRESENT / ABSENT
+    private String status; // PRESENT / ABSENT / LATE
 
-    // ===== GETTER SETTER =====
-
+    // Getters and Setters
     public int getAttendanceId() { return attendanceId; }
     public void setAttendanceId(int attendanceId) { this.attendanceId = attendanceId; }
 
-    public int getStudentId() { return studentId; }
-    public void setStudentId(int studentId) { this.studentId = studentId; }
+    public Student getStudent() { return student; }
+    public void setStudent(Student student) { this.student = student; }
 
-    public int getTeacherId() { return teacherId; }
-    public void setTeacherId(int teacherId) { this.teacherId = teacherId; }
+    public Teacher getTeacher() { return teacher; }
+    public void setTeacher(Teacher teacher) { this.teacher = teacher; }
 
     public int getMarkId() { return markId; }
     public void setMarkId(int markId) { this.markId = markId; }
